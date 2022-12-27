@@ -110,12 +110,62 @@ namespace CSharpSample
             //var book = new BookSample();
 
             //book.AddGrade(10.13);
+            string bookName = "Sachin's book"; //similar to ""
 
-            var book = new BookSample("Sachin's book");
-            // book.displayName();
-            book.AddGrade(10.4);
-            book.AddGrade(20.1);
+            var book = new BookSample(bookName);
+
+            //book.AddGrade(10);
+            //book.AddGrade(20);
+            //book.AddGrade(30);
+
+            // book.AddGrade(100);
+           
+            while (true)
+            {
+                Console.WriteLine("Enter a Grade or q to quit");
+                var input = Console.ReadLine(); // Get a input from a user
+                if (input == "q")
+                {
+                    break;
+                }
+                else
+                {
+                    try
+                    {
+                        var grade = double.Parse(input);
+                        book.AddGrade(grade);
+                    }
+                    catch(Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+                //{
+                //    break;
+                //}
+                //var grade = double.Parse(input);
+                //book.AddGrade(grade);
+                //try
+                //{
+                //    var grade = double.Parse(input);
+                //    book.AddGrade(grade);
+                //}
+                //catch (ArgumentException ex)
+                //{ Console.WriteLine(ex.Message); }
+                //catch (FormatException ex)
+                //{
+                //    Console.WriteLine(ex.Message);
+                //}
+                //finally // Code will always execute
+                //{
+                //    Console.WriteLine("***");
+                //}
+
+            }
+
             book.ComputeAverage();
+
+
 
             //Reference Type 
 

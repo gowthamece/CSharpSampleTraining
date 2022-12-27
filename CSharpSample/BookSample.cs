@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace CSharpSample
 {
@@ -27,21 +29,49 @@ namespace CSharpSample
         }
         public void AddGrade(double grade) //Class member function 
         {
-            grades.Add(grade);
-
+            if (grade <= 100 && grade > 0) 
+            {
+                grades.Add(grade);
+            }
+            else
+            {
+                Console.WriteLine("Invalid Grade");
+            }
         }
 
         public void ComputeAverage()
         {
             var listResult = 0.0;
+            var lowestNumber = double.MaxValue;
+            var highestNumber = double.MinValue;
             foreach (double num in grades)
             {
                 listResult = listResult + num;
+                lowestNumber = Math.Min(num, lowestNumber);
+                highestNumber = Math.Max(num, highestNumber);
             }
-            Console.WriteLine(listResult / grades.Count);
 
-            Console.WriteLine($"The avaerage:  {(listResult / grades.Count):N3}");
+            //for(int index = 0; index < grades.Count; index++)
+            //{
+            //    listResult = listResult + grades[index];
+            //    lowestNumber = Math.Min(grades[index], lowestNumber);
+            //    highestNumber = Math.Max(grades[index], highestNumber);
+            //}
+            //var index = 0;
+            //do
+            //{
+            //    listResult = listResult + grades[index];
+            //    lowestNumber = Math.Min(grades[index], lowestNumber);
+            //    highestNumber = Math.Max(grades[index], highestNumber);
+            //    index++;
+            //} while(index<grades.Count);
+
+            Console.WriteLine($"Book Name: {name}");
+            Console.WriteLine($"Lowest Number: {lowestNumber}");
+            Console.WriteLine($"Highest Number: {highestNumber}");
+            Console.WriteLine($"The average:  {(listResult / grades.Count):N3}");
             Console.ReadKey();
+
         }
     }
 }
