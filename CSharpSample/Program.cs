@@ -119,10 +119,13 @@ namespace CSharpSample
             //book.AddGrade(30);
 
             // book.AddGrade(100);
-           
+            book.Name = "Hello Property";
+            Console.WriteLine(book.Name);
             while (true)
             {
                 Console.WriteLine("Enter a Grade or q to quit");
+                Console.WriteLine("Enter A or B to get the value");
+            
                 var input = Console.ReadLine(); // Get a input from a user
                 if (input == "q")
                 {
@@ -134,10 +137,13 @@ namespace CSharpSample
                     {
                         var grade = double.Parse(input);
                         book.AddGrade(grade);
+
+
                     }
                     catch(Exception ex)
                     {
-                        Console.WriteLine(ex.Message);
+                        book.AddGrade(char.Parse(input));
+                      // Console.WriteLine(ex.Message);
                     }
                 }
                 //{
@@ -162,6 +168,10 @@ namespace CSharpSample
                 //}
 
             }
+            var student = new Student();
+
+            var teacher = new Teacher();
+           
 
             book.ComputeAverage();
 

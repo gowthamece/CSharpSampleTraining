@@ -12,9 +12,13 @@ namespace CSharpSample
     {
         public List<double> grades;  // class memeber or Field
 
-        public string name;
+        public string name; 
+        public string Name
+        {
+            get;set;
+        }
 
-        public BookSample( string name)
+        public BookSample(string name)
         {
             grades = new List<double>();
 
@@ -39,6 +43,26 @@ namespace CSharpSample
             }
         }
 
+        public void AddGrade(char grade) //Class member function  'A' 'B' '1'
+        {
+           switch(grade)
+            {
+                case 'A':
+                    Console.WriteLine("Highest Grade");
+                    break;
+                case 'B':
+                    Console.WriteLine("Average");
+                    break;
+                default:
+                    Console.WriteLine("failed");
+                    break;
+            }
+        }
+
+        public void AddGrade(char grade,int numberGrade) //Class member function  'A' 'B' '1'
+        {
+            //
+        }
         public void ComputeAverage()
         {
             var listResult = 0.0;
