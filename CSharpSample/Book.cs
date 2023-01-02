@@ -60,7 +60,7 @@ namespace CSharpSample
 
         }
 
-        public  override void ComputeAverage()
+        public override void ComputeAverage()
         {
             var listResult = 0.0;
             var lowestNumber = double.MaxValue;
@@ -129,17 +129,17 @@ namespace CSharpSample
 
         }
     }
-    public abstract class BookBase: NamedObject, IBook
-    {
-        public BookBase(string name) : base(name)
-        {
-        }
+    //public abstract class BookBase: NamedObject, IBook
+    //{
+    //    public BookBase(string name) : base(name)
+    //    {
+    //    }
 
-        public abstract void AddGrade(double grade);
-        public abstract void ComputeAverage();
+    //    public abstract void AddGrade(double grade);
+    //    public abstract void ComputeAverage();
         
        
-    }
+    //}
 
     public interface IBook
     {

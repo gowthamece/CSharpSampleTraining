@@ -1,41 +1,76 @@
-﻿using System;
+﻿using CSharpSample.AbstractClassDemo;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace CSharpSample
 {
-    public class BookSample
+    public class BookSample: BookAbstractBase
     {
+        public delegate string  WriteLogDelegate(string name); // Delegate
+         
         public List<double> grades;  // class memeber or Field
+        public const string CATEGORY="I'm Const Category";
 
-        public string name; 
-        public string Name
-        {
-            get;set;
-        }
+     //   public string name; 
+        public  readonly string category="I'm readonly category";
 
-        public BookSample(string name)
+        public BookSample(string name) : base(name)
         {
             grades = new List<double>();
-
-            this.name = name;
+             Name = name;
         }
 
+        
+
+        //public BookSample(string name)
+        //{
+        //    grades = new List<double>();
+        //    category = "Constructor Category";
+        //    Name = name;
+        //}
+
+        public string ReturnMessage(string message)
+        {
+            return message;
+        }
+
+        public string AdditionalLog(string message)
+        {
+            return message.ToLower();
+        }
+        public string AdditionalLog1(string message)
+        {
+            return message.ToLower();
+        }
         public void displayName()
         {
-            Console.WriteLine(name);
+
+            Console.WriteLine(Name);
             Console.ReadKey();
-             
+
         }
-        public void AddGrade(double grade) //Class member function 
+        public override void AddGrade(double grade) //Class member function 
         {
             if (grade <= 100 && grade > 0) 
             {
+               
                 grades.Add(grade);
+                //WriteLogDelegate log;
+                //log = new WriteLogDelegate(ReturnMessage);
+                //var result = log("I'm log");
+
+                WriteLogDelegate log = ReturnMessage;
+                log += AdditionalLog;
+                log += AdditionalLog1;
+                var result = log("I'm log");
+
             }
             else
             {
@@ -63,7 +98,7 @@ namespace CSharpSample
         {
             //
         }
-        public void ComputeAverage()
+        public override void ComputeAverage()
         {
             var listResult = 0.0;
             var lowestNumber = double.MaxValue;
@@ -90,7 +125,7 @@ namespace CSharpSample
             //    index++;
             //} while(index<grades.Count);
 
-            Console.WriteLine($"Book Name: {name}");
+            Console.WriteLine($"Book Name: {Name}");
             Console.WriteLine($"Lowest Number: {lowestNumber}");
             Console.WriteLine($"Highest Number: {highestNumber}");
             Console.WriteLine($"The average:  {(listResult / grades.Count):N3}");

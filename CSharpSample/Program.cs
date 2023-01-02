@@ -1,18 +1,32 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Net.Http.Headers;
+//using System.Runtime.Remoting.Services;
+//using System.Text;
+//using System.Threading.Tasks;
 
 namespace CSharpSample
 {
-    
+
     internal class Program
     {
         static void Main(string[] args)  // Caluclating the average for a students --> behaviour of the class 
         {
             //double x  = 21.10;
             //var y = 20.22;
+
+            // VairableEx vairableEx = new VairableEx("bob","jose"); //object creation in C#
+            //  vairableEx.FirstName = "bob"; 
+            //   vairableEx.LastName = "jose";
+            //  Console.WriteLine(vairableEx.FirstName);
+            //  Console.WriteLine(vairableEx.LastName);
+            //  vairableEx.PrintName();
+            // Console.ReadKey();
+            //  Console.WriteLine(vairableEx.LastName);
+
+
+
 
 
             ////float c = 10.00F;
@@ -74,7 +88,7 @@ namespace CSharpSample
             //Console.WriteLine($"Average:{avg}");   // String Interpolation 
             //Console.ReadKey();
 
-            //Collections
+            // -------------------Collections-------------------------------------//
 
 
             //List grades;
@@ -99,83 +113,107 @@ namespace CSharpSample
             //Console.WriteLine($"The avaerage:  {(listResult / gradesInt.Count):N3}");
             //Console.ReadKey();
 
-            //---------------
+            //------------------------------------------------------------------------------//
 
             //Caluate the lowest score for the student 
             // and the highest score of the student 
 
 
-            //Classes and Object
+            // ------------------------ Classes and Object ----------------------------//
 
             //var book = new BookSample();
 
             //book.AddGrade(10.13);
-            string bookName = "Sachin's book"; //similar to ""
 
-            var book = new BookSample(bookName);
+            //string bookName = "Sachin's book"; //similar to ""
+
+            //var book = new BookSample(bookName);
 
             //book.AddGrade(10);
             //book.AddGrade(20);
             //book.AddGrade(30);
 
-            // book.AddGrade(100);
-            book.Name = "Hello Property";
-            Console.WriteLine(book.Name);
-            while (true)
-            {
-                Console.WriteLine("Enter a Grade or q to quit");
-                Console.WriteLine("Enter A or B to get the value");
-            
-                var input = Console.ReadLine(); // Get a input from a user
-                if (input == "q")
-                {
-                    break;
-                }
-                else
-                {
-                    try
-                    {
-                        var grade = double.Parse(input);
-                        book.AddGrade(grade);
+            //book.AddGrade(100);
+            //book.Name = "Hello Property";
+            //Console.WriteLine(book.Name);
+            //while (true)
+            //{
+            //    Console.WriteLine("Enter a Grade or q to quit");
+            //    Console.WriteLine("Enter A or B to get the value");
+
+            //    var input = Console.ReadLine(); // Get a input from a user
+            //    if (input == "q")
+            //    {
+            //        break;
+            //    }
+            //    else
+            //    {
+            //        try
+            //        {
+            //            var grade = double.Parse(input);
+            //            book.AddGrade(grade);
 
 
-                    }
-                    catch(Exception ex)
-                    {
-                        book.AddGrade(char.Parse(input));
-                      // Console.WriteLine(ex.Message);
-                    }
-                }
-                //{
-                //    break;
-                //}
-                //var grade = double.Parse(input);
-                //book.AddGrade(grade);
-                //try
-                //{
-                //    var grade = double.Parse(input);
-                //    book.AddGrade(grade);
-                //}
-                //catch (ArgumentException ex)
-                //{ Console.WriteLine(ex.Message); }
-                //catch (FormatException ex)
-                //{
-                //    Console.WriteLine(ex.Message);
-                //}
-                //finally // Code will always execute
-                //{
-                //    Console.WriteLine("***");
-                //}
+            //        }
+            //        catch (Exception ex)
+            //        {
+            //            book.AddGrade(char.Parse(input));
+            //            // Console.WriteLine(ex.Message);
+            //        }
+            //    }
+            //    //{
+            //    break;
+            //}
+            //var grade = double.Parse(input);
+            //book.AddGrade(grade);
+            //try
+            //{
+            //    var grade = double.Parse(input);
+            //    book.AddGrade(grade);
+            //}
+            //catch (ArgumentException ex)
+            //{ Console.WriteLine(ex.Message); }
+            //catch (FormatException ex)
+            //{
+            //    Console.WriteLine(ex.Message);
+            //}
+            //finally // Code will always execute
+            //{
+            //    Console.WriteLine("***");
+            //}
 
-            }
-            var student = new Student();
+            //  }
+            //book.ComputeAverage();
+            //--------------------------------------------------------------------------------------------//
 
-            var teacher = new Teacher();
-           
+            //--------------------------------------Abstract Class ----------------------------------------//
 
-            book.ComputeAverage();
+            //var bookSample = new BookSample("Sachin book");
+
+            //EnterGrade(bookSample);
+            //bookSample.ComputeAverage();
+            //Console.ReadKey();
+
+            //var studentSample = new StudentSample("Sachin book");
+            //studentSample.AddGrade(10);
+            //studentSample.ComputeAverage();
+            //Console.ReadKey();
+
+            var diskBook = new DiskBook("Sachin");
+            diskBook.AddGrade(50);
+           // diskBook.AddGrade(20);
 
 
+
+
+            //---------------------------------------- Interface -------------------------------------------// 
+
+            //IBook book2 = new DiskBook("Sachin book");
+            //EnterGrade(book2);
+            //book2.ComputeAverage();
+            //Console.ReadKey();
+
+            //-------------------------------------------------------------------------------------------------//
 
             //Reference Type 
 
@@ -202,8 +240,41 @@ namespace CSharpSample
             //Console.WriteLine(bookRef.name);
             //Console.ReadKey();
 
+            //--------------------------------------------------------------------------------------//
 
 
+            //  }
+     
+
+        }
+        public static void EnterGrade(BookSample book)
+        {
+            while (true)
+            {
+                Console.WriteLine("Enter a Grade or q to quit");
+                Console.WriteLine("Enter A or B to get the value");
+
+                var input = Console.ReadLine(); // Get a input from a user
+                if (input == "q")
+                {
+                    break;
+                }
+                else
+                {
+                    try
+                    {
+                        var grade = double.Parse(input);
+                        book.AddGrade(grade);
+
+
+                    }
+                    catch (Exception ex)
+                    {
+                        book.AddGrade(char.Parse(input));
+                        // Console.WriteLine(ex.Message);
+                    }
+                }
+            }
 
         }
     }
