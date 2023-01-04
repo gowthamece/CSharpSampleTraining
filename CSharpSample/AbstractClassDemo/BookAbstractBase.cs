@@ -15,5 +15,16 @@ namespace CSharpSample.AbstractClassDemo
         public abstract void AddGrade(double grade);
                 
         public abstract void ComputeAverage();
+        public void AddNumber()
+        {
+            var result = 10 + 20;
+            Console.WriteLine(result);
+        }
+
+        public void AddGrade()
+        {
+            var result = 10 + 20;
+            Console.WriteLine(result);
+        }
     }
 }

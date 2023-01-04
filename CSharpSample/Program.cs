@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 //using System.Collections.Generic;
 //using System.Linq;
 //using System.Net.Http.Headers;
@@ -200,7 +202,11 @@ namespace CSharpSample
             //Console.ReadKey();
 
             var diskBook = new DiskBook("Sachin");
-            diskBook.AddGrade(50);
+           // diskBook.AddGrade(50);
+            var result= diskBook.ListofNumbers();
+            Displayint(result);
+            Console.ReadKey();
+
            // diskBook.AddGrade(20);
 
 
@@ -247,7 +253,16 @@ namespace CSharpSample
      
 
         }
-        public static void EnterGrade(BookSample book)
+
+        public static void Displayint(List<int> list)
+        {
+            foreach (var item in list)
+            {
+                Console.WriteLine(item);
+            }
+        }
+
+        public async static void EnterGrade(BookSample book)
         {
             while (true)
             {

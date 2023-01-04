@@ -1,4 +1,5 @@
 ﻿using CSharpSample.AbstractClassDemo;
+using CSharpSample.Interface;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CSharpSample
 {
-    public class DiskBook : BookAbstractBase
+    public class DiskBook : BookAbstractBase, IBookBase
     {
         public DiskBook(string name) : base(name)
         {
@@ -33,6 +34,21 @@ namespace CSharpSample
         {
             // throw new NotImplementedException();
             Console.WriteLine("Hello");
+        }
+
+        public  List<int> ListofNumbers()
+        {
+            //    List<int> ints = new List<int>();
+            var ints = new List<int>();
+            
+            for(int i = 0; i < 10; i++)
+            {
+                ints.Add(i);
+               
+            }
+         return ints;
+
+
         }
     }
 }
