@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CSharpSample.Interface;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 //using System.Collections.Generic;
@@ -201,13 +202,19 @@ namespace CSharpSample
             //studentSample.ComputeAverage();
             //Console.ReadKey();
 
-            var diskBook = new DiskBook("Sachin");
+           // var diskBook = new DiskBook("Sachin");
            // diskBook.AddGrade(50);
-            var result= diskBook.ListofNumbers();
+           // var result= diskBook.ListofNumbers();
+           // Displayint(result);
+           // Console.ReadKey();
+
+            IBookBase diskBook = new DiskBook("Sachin");
+      
+            var result = diskBook.ListofNumbers();
             Displayint(result);
             Console.ReadKey();
 
-           // diskBook.AddGrade(20);
+            // diskBook.AddGrade(20);
 
 
 
@@ -250,7 +257,7 @@ namespace CSharpSample
 
 
             //  }
-     
+
 
         }
 
